@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/vasildakov/duck/actions/workflows/ci.yml/badge.svg)](https://github.com/vasildakov/duck/actions/workflows/ci.yml)
 [![PHP Version Require](https://poser.pugx.org/vasildakov/duck/require/php)](https://packagist.org/packages/vasildakov/duck)
+[![Latest Stable Version](https://poser.pugx.org/vasildakov/duck/v/stable)](https://packagist.org/packages/vasildakov/duck)
 [![License](https://img.shields.io/github/license/vasildakov/duck)](LICENSE)
 [![Coverage Status](https://coveralls.io/repos/github/vasildakov/duck/badge.svg?branch=master)](https://coveralls.io/github/vasildakov/duck?branch=master)
 
