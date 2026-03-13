@@ -1,6 +1,6 @@
 {
-    "name": "vasildakov/composition-over-inheritance",
-    "description": "An implementation of composition over inheritance",
+    "name": "vasildakov/duck",
+    "description": "A PHP duck model demonstrating composition over inheritance.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -10,13 +10,13 @@
         }
     ],
     "require": {
-        "php": ">=5.6"
+        "php": "^8.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.7|^5.0",
-        "squizlabs/php_codesniffer": "~2.3",
-        "satooshi/php-coveralls": "~1.0",
-        "phpunit/php-code-coverage": "^3.0|^4.0"
+        "phpunit/phpunit": "^11.0",
+        "squizlabs/php_codesniffer": "^3.0",
+        "php-coveralls/php-coveralls": "^2.0",
+        "phpstan/phpstan": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -27,5 +27,11 @@
         "psr-4": {
             "CoI\\": "tests/"
         }
+    },
+    "scripts": {
+        "composer:test": "vendor/bin/phpunit",
+        "composer:cs": "vendor/bin/phpcs",
+        "composer:cs-fix": "vendor/bin/phpcbf",
+        "composer:phpstan": "vendor/bin/phpstan analyse"
     }
 }

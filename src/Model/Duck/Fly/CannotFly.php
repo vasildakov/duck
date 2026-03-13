@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the vasildakov/duck project.
  *
@@ -10,6 +11,8 @@
  * @link https://github.com/vasildakov/duck GitHub
  */
 
+declare(strict_types=1);
+
 namespace CoI\Model\Duck\Fly;
 
 /**
@@ -20,7 +23,8 @@ namespace CoI\Model\Duck\Fly;
  */
 final class CannotFly implements Flyable
 {
-    public function fly()
+    #[\Override]
+    public function fly(): string
     {
         return "I can't fly!";
     }

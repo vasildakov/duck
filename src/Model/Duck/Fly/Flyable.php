@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the vasildakov/duck project.
  *
@@ -10,6 +11,8 @@
  * @link https://github.com/vasildakov/duck GitHub
  */
 
+declare(strict_types=1);
+
 namespace CoI\Model\Duck\Fly;
 
 /**
@@ -17,5 +20,5 @@ namespace CoI\Model\Duck\Fly;
  */
 interface Flyable
 {
-    public function fly();
+    public function fly(): string;
 }

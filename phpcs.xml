@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ruleset name="vasildakov/duck">
+    <description>PHP CodeSniffer configuration for vasildakov/duck</description>
+
+    <!-- Paths to check -->
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- Show progress and sniff codes -->
+    <arg value="sp"/>
+    <arg name="colors"/>
+
+    <!-- PHP version -->
+    <config name="php_version" value="80400"/>
+
+    <!-- Use PSR-12 as the base standard -->
+    <rule ref="PSR12"/>
+</ruleset>
+

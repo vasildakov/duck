@@ -1,57 +1,54 @@
 <?php
+
+declare(strict_types=1);
+
 namespace CoI\ModelTest\Duck;
 
-use CoI\Model\Duck\Duck;
 use CoI\Model\Duck\DecoyDuck;
 use CoI\Model\Duck\Quack\MuteQuack;
 use CoI\Model\Duck\Fly\CannotFly;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
-class DecoyDuckTest extends \PHPUnit_Framework_TestCase
+final class DecoyDuckTest extends TestCase
 {
-    protected $flyable;
+    protected CannotFly $flyable;
 
-    protected $quackable;
+    protected MuteQuack $quackable;
 
-    protected function setUp()
+    #[\Override]
+    protected function setUp(): void
     {
         $this->flyable = new CannotFly();
 
         $this->quackable = new MuteQuack();
     }
 
-    /**
-     * @test
-     */
-    public function itCanBeConstructed()
+    #[Test]
+    public function itCanBeConstructed(): void
     {
         $duck = new DecoyDuck($this->flyable, $this->quackable);
         self::assertInstanceOf(DecoyDuck::class, $duck);
     }
 
-    /**
-     * @test
-     */
-    public function itCanDisplay()
+    #[Test]
+    public function itCanDisplay(): void
     {
         $duck = new DecoyDuck($this->flyable, $this->quackable);
 
         self::assertEquals("I'm a Decoy duck", $duck->display());
     }
 
-    /**
-     * @test
-     */
-    public function itCanFly()
+    #[Test]
+    public function itCanFly(): void
     {
         $duck = new DecoyDuck($this->flyable, $this->quackable);
 
         self::assertEquals("I can't fly!", $duck->fly());
     }
 
-    /**
-     * @test
-     */
-    public function itCanQuack()
+    #[Test]
+    public function itCanQuack(): void
     {
         $duck = new DecoyDuck($this->flyable, $this->quackable);
 

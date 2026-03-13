@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the vasildakov/duck project.
  *
@@ -10,6 +11,8 @@
  * @link https://github.com/vasildakov/duck GitHub
  */
 
+declare(strict_types=1);
+
 namespace CoI\Model\Duck\Quack;
 
 /**
@@ -17,5 +20,5 @@ namespace CoI\Model\Duck\Quack;
  */
 interface Quackable
 {
-    public function quack();
+    public function quack(): string;
 }

@@ -1,68 +1,63 @@
 <?php
+
+declare(strict_types=1);
+
 namespace CoI\ModelTest\Duck;
 
-use CoI\Model\Duck\Duck;
 use CoI\Model\Duck\MallardDuck;
 use CoI\Model\Duck\Quack\Quack;
 use CoI\Model\Duck\Fly\FlyWithWings;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
-class MallardDuckTest extends \PHPUnit_Framework_TestCase
+final class MallardDuckTest extends TestCase
 {
-    protected $flyable;
+    protected FlyWithWings $flyable;
 
-    protected $quackable;
+    protected Quack $quackable;
 
-    protected function setUp()
+    #[\Override]
+    protected function setUp(): void
     {
         $this->flyable = new FlyWithWings();
 
         $this->quackable = new Quack();
     }
 
-    /**
-     * @test
-     */
-    public function itCanBeConstructed()
+    #[Test]
+    public function itCanBeConstructed(): void
     {
         $duck = new MallardDuck($this->flyable, $this->quackable);
 
         self::assertInstanceOf(MallardDuck::class, $duck);
     }
 
-    /**
-     * @test
-     */
-    public function itCanSwim()
+    #[Test]
+    public function itCanSwim(): void
     {
         $duck = new MallardDuck($this->flyable, $this->quackable);
 
         self::assertEquals("All ducks float, even decoys!", $duck->swim());
     }
 
-    /**
-     * @test
-     */
-    public function itCanDisplay()
+    #[Test]
+    public function itCanDisplay(): void
     {
         $duck = new MallardDuck($this->flyable, $this->quackable);
 
         self::assertEquals("I'm a real Mallard duck", $duck->display());
     }
 
-    /**
-     * @test
-     */
-    public function itCanFly()
+    #[Test]
+    public function itCanFly(): void
     {
         $duck = new MallardDuck($this->flyable, $this->quackable);
 
         self::assertEquals("I'm flying!!", $duck->fly());
     }
 
-    /**
-     * @test
-     */
-    public function itCanQuack()
+    #[Test]
+    public function itCanQuack(): void
     {
         $duck = new MallardDuck($this->flyable, $this->quackable);
 

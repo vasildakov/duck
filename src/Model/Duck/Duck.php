@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the vasildakov/duck project.
  *
@@ -9,6 +10,8 @@
  * @license http://opensource.org/licenses/MIT MIT
  * @link https://github.com/vasildakov/duck GitHub
  */
+
+declare(strict_types=1);
 
 namespace CoI\Model\Duck;
 
@@ -23,43 +26,25 @@ use CoI\Model\Duck\Quack\Quackable;
  */
 abstract class Duck
 {
-    /**
-     * @var \CoI\Model\Duck\Fly\Flyable
-     */
-    public $flyable;
-
-    /**
-     * @var \CoI\Model\Duck\Quick\Quackable
-     */
-    public $quackable;
-
-    /**
-     * @param \CoI\Model\Duck\Fly\Flyable     $flyable
-     * @param \CoI\Model\Duck\Quick\Quackable $quackable
-     */
-    public function __construct(Flyable $flyable, Quackable $quackable)
-    {
-        $this->flyable   = $flyable;
-        $this->quackable = $quackable;
+    public function __construct(
+        public readonly Flyable $flyable,
+        public readonly Quackable $quackable,
+    ) {
     }
 
-
-    public function quack()
+    public function quack(): string
     {
         return $this->quackable->quack();
     }
 
-
-    public function fly()
+    public function fly(): string
     {
         return $this->flyable->fly();
     }
 
+    abstract public function display(): string;
 
-    abstract protected function display();
-
-
-    public function swim()
+    public function swim(): string
     {
         return 'All ducks float, even decoys!';
     }

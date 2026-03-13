@@ -1,39 +1,39 @@
 <?php
+
+declare(strict_types=1);
+
 namespace CoI\ModelTest\Duck;
 
-use CoI\Model\Duck\Duck;
 use CoI\Model\Duck\RedheadDuck;
 use CoI\Model\Duck\Quack\Quack;
 use CoI\Model\Duck\Fly\FlyWithWings;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
-class RedheadDuckTest extends \PHPUnit_Framework_TestCase
+final class RedheadDuckTest extends TestCase
 {
-    protected $flyable;
+    protected FlyWithWings $flyable;
 
-    protected $quackable;
+    protected Quack $quackable;
 
-    protected function setUp()
+    #[\Override]
+    protected function setUp(): void
     {
         $this->flyable = new FlyWithWings();
 
         $this->quackable = new Quack();
     }
 
-    /**
-     * @test
-     */
-    public function itCanBeConstructed()
+    #[Test]
+    public function itCanBeConstructed(): void
     {
         $duck = new RedheadDuck($this->flyable, $this->quackable);
 
         self::assertInstanceOf(RedheadDuck::class, $duck);
     }
 
-
-    /**
-     * @test
-     */
-    public function itCanDisplay()
+    #[Test]
+    public function itCanDisplay(): void
     {
         $duck = new RedheadDuck($this->flyable, $this->quackable);
 
